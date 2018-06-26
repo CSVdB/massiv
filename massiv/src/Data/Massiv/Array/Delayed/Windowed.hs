@@ -55,7 +55,7 @@ instance (Num ix, Index ix, Validity ix, Validity (Array D ix e), Validity e) =>
         , delve "stencil size" wdStencilSize
         , delve "window start index" wdWindowStartIndex
         , delve "window size" wdWindowSize
-        , declare "window start index must be positive" $ wdWindowStartIndex >= pureIndex 0
+        , declare "window start index must be positive" $ wdWindowStartIndex >= zeroIndex
         , declare "window fits in array" $ wdWindowStartIndex + wdWindowSize <= size wdArray
         , validateFunc wdWindowStartIndex (wdWindowStartIndex + wdWindowSize) wdWindowUnsafeIndex
         ]

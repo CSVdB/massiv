@@ -49,7 +49,7 @@ instance (Index ix, Validity ix, Validity e) => Validity (Array D ix e) where
     validate DArray {..} = mconcat
         [ delve "comp" dComp
         , delve "size" dSize
-        , decorate "array" $ validateFunc (pureIndex 0) dSize dUnsafeIndex
+        , decorate "array" $ validateFunc zeroIndex dSize dUnsafeIndex
         ]
 
 type instance EltRepr D ix = D
